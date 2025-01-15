@@ -214,4 +214,4 @@ This project is licensed under the **MIT License**.
 
 ## 📧 Contact
 
-For any queries, contact **Ankush Rawat**.
+For any queries, contact **Sonali Upadhyay**.
