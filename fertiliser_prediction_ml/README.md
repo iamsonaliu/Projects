@@ -1,155 +1,115 @@
-#  Heart Disease Prediction System
+# 🌱 Fertilizer Recommendation System (Machine Learning + GUI)
 
-A **Heart Disease Prediction System** built using **Python** and **Logistic Regression** to predict whether a person has a heart condition based on medical data. The system uses a trained machine learning model to classify patients as healthy or in need of medical attention based on input features.
-
----
-
-## 📂 Project Structure
-```
-heart_disease_prediction.ipynb  # Main Notebook file
-heart_disease_data.csv          # Dataset containing patient records
-README.md                       # Documentation
-```
+This **Fertilizer Recommendation System** uses a **Decision Tree Classifier** to predict the most suitable fertilizer for crops based on input features like **temperature**, **humidity**, **soil type**, and more. The system is integrated with a **Tkinter GUI** for user interaction, making it accessible for farmers and agriculturalists.
 
 ---
 
-## 📋 Dataset Overview
-The project uses the **Heart Disease Dataset**, which contains several medical features to predict whether a patient has heart disease.
-
-### **Dataset Columns:**
-| Feature        | Description                                       |
-|----------------|---------------------------------------------------|
-| `age`          | Age of the patient                                |
-| `sex`          | Gender (0 = Female, 1 = Male)                     |
-| `cp`           | Chest pain type (0-3)                             |
-| `trestbps`     | Resting blood pressure (mm Hg)                    |
-| `chol`         | Serum cholesterol (mg/dl)                         |
-| `fbs`          | Fasting blood sugar > 120 mg/dl (1 = True, 0 = False) |
-| `restecg`      | Resting electrocardiographic results (0-2)        |
-| `thalach`      | Maximum heart rate achieved                       |
-| `exang`        | Exercise-induced angina (1 = Yes, 0 = No)         |
-| `oldpeak`      | ST depression induced by exercise relative to rest |
-| `slope`        | The slope of the peak exercise ST segment         |
-| `ca`           | Number of major vessels (0-4) colored by fluoroscopy |
-| `thal`         | Thalassemia (1 = Normal, 2 = Fixed Defect, 3 = Reversible Defect) |
-| `target`       | Heart disease status (1 = Defective Heart, 0 = Healthy) |
+## 📋 Features
+- **Machine Learning Model**: Uses a **Decision Tree Classifier** for predictions.
+- **Data Handling**: Loads and prepares data from a CSV file.
+- **GUI Application**: Built with **Tkinter**, providing a user-friendly interface.
+- **Real-Time Prediction**: Recommends fertilizers based on the given inputs.
 
 ---
 
-## 🧪 Libraries Used
-- **pandas**: Data manipulation and analysis
-- **numpy**: Array operations
-- **scikit-learn**: Machine learning tools
-  - `train_test_split`: Splitting the dataset into training and test sets
-  - `LogisticRegression`: Logistic Regression model
-  - `accuracy_score`: Model performance evaluation
-
----
-
-## 📈 Workflow
-### 1. **Loading the Dataset**
-The dataset is loaded using **pandas**:
-```python
-df = pd.read_csv('/heart_disease_data.csv')
+## 🧩 Project Structure
 ```
-
-### 2. **Data Inspection**
-Basic inspection of the dataset:
-- `df.head()`: View the first 5 rows
-- `df.tail()`: View the last 5 rows
-- `df.shape`: Check the number of rows and columns
-- `df.info()`: Check the data types and non-null values
-- `df.describe()`: View statistical summary
-
-### 3. **Splitting the Data**
-The dataset is split into **features (X)** and **target (Y)**:
-```python
-X = df.drop(columns='target', axis=1)
-Y = df['target']
-```
-
-Using **train_test_split()** to split the data into **training** and **testing** sets:
-```python
-X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, stratify=Y, random_state=23)
-```
-
-### 4. **Model Training**
-A **Logistic Regression** model is used for training:
-```python
-from sklearn.linear_model import LogisticRegression
-
-model = LogisticRegression()
-model.fit(X_train, Y_train)
-```
-
-### 5. **Model Evaluation**
-The trained model is evaluated using **accuracy_score**:
-```python
-from sklearn.metrics import accuracy_score
-
-Y_pred = model.predict(X_test)
-score = accuracy_score(Y_test, Y_pred)
-print("The accuracy score is:", score)
+fertilizer_recommender_ml_gui.py  # Main Python file
+Fertilizer Prediction.csv         # Dataset
+README.md                         # Documentation
 ```
 
 ---
 
-## 🧠 Building a Predictive System
-The predictive system takes a patient's medical data as input and predicts whether they are healthy or need medical attention.
-
-### **Example Input:**
-```python
-input_data = (62, 0, 0, 140, 268, 0, 0, 160, 0, 3.6, 0, 2, 2)
-```
-
-### **Prediction Logic:**
-```python
-arr = np.array(input_data)
-prediction = model.predict(arr.reshape(1, -1))
-
-if prediction == 0:
-    print("You are healthy")
-else:
-    print("Consult your doctor")
-```
+## ⚙️ Dependencies
+- **Python 3.x**
+- **pandas**: For data manipulation and analysis.
+- **scikit-learn**: For building the machine learning model.
+- **Tkinter**: For GUI development.
 
 ---
 
-## 🔬 Model Performance
-- **Model Used**: Logistic Regression
-- **Accuracy Score**: The model achieved a high accuracy score on the test data.
-
----
-
-## ⚙️ How to Run the Project
-1. Ensure you have **Python 3.x** installed.
-2. Install the required libraries:
+## 📚 How to Run the Application
+1. **Install the Required Libraries**:
    ```bash
-   pip install pandas numpy scikit-learn
+   pip install pandas scikit-learn
    ```
-3. Run the **Jupyter Notebook** file:
+
+2. **Ensure the Dataset is Available**:
+   Place the `Fertilizer Prediction.csv` file in the specified path:
+   ```
+   C:/Users/sonal/OneDrive/Desktop/python projs/Fertilizer Prediction.csv
+   ```
+
+3. **Run the Application**:
    ```bash
-   jupyter notebook heart_disease_prediction.ipynb
+   python fertilizer_recommender_ml_gui.py
    ```
 
 ---
 
-## 📈 Future Improvements
-- Add more machine learning models (e.g., Random Forest, SVM) for better accuracy.
-- Include feature engineering to improve the model's performance.
-- Deploy the model using **Flask** or **Streamlit** for a user-friendly interface.
+## 🧪 Dataset Description
+The dataset used is a CSV file containing the following columns:
+- **Temperature (°C)**
+- **Humidity (%)**
+- **Moisture (%)**
+- **Soil Type** (Categorical: Sandy, Loamy, Black, Red, Clayey)
+- **Crop Type** (Categorical: Maize, Sugarcane, Cotton, Tobacco, etc.)
+- **Nitrogen Level** (N)
+- **Phosphorus Level** (P)
+- **Potassium Level** (K)
+- **Fertilizer Name** (Target Variable)
+
+### Example Row:
+| Temperature | Humidity | Moisture | Soil Type | Crop Type | Nitrogen | Phosphorus | Potassium | Fertilizer Name |
+|-------------|----------|----------|-----------|-----------|----------|------------|-----------|-----------------|
+| 26.5        | 68       | 30       | Loamy     | Maize     | 10       | 15         | 12        | Urea            |
 
 ---
 
-## 🤝 Contribution
-Contributions are welcome! Fork the repository and submit a pull request with your improvements.
+## 🖥️ User Interface
+The application includes the following input fields:
+- **Temperature (°C)**
+- **Humidity (%)**
+- **Moisture (%)**
+- **Soil Type** (Dropdown: Sandy, Loamy, Black, Red, Clayey)
+- **Crop Type** (Dropdown: Maize, Sugarcane, Cotton, Tobacco, etc.)
+- **Nitrogen Level (N)**
+- **Phosphorus Level (P)**
+- **Potassium Level (K)**
+
+### Buttons:
+- **Recommend**: Predicts the recommended fertilizer based on inputs.
+- **Clear**: Clears all the input fields.
+
+### Output:
+The recommended fertilizer is displayed on the screen.
 
 ---
 
-## 📜 License
-This project is licensed under the **MIT License**.
+## 🧩 Machine Learning Model
+The **Decision Tree Classifier** is trained on the dataset using the following steps:
+1. **Data Preprocessing**: Categorical columns are encoded using **LabelEncoder**.
+2. **Train-Test Split**: The dataset is split into **80% training** and **20% testing**.
+3. **Model Training**: The model is trained using the **Decision Tree Classifier** from **scikit-learn**.
+
+---
+
+## 📈 Example Predictions
+| Inputs                            | Recommended Fertilizer |
+|-----------------------------------|------------------------|
+| Temp: 26.5, Soil: Loamy, Crop: Maize | Urea                   |
+| Temp: 30.2, Soil: Sandy, Crop: Wheat | DAP                    |
+
+---
+
+## 🎯 Future Improvements
+- Enhance the model with **Random Forest** or **Gradient Boosting** for better accuracy.
+- Add a **database** to store previous recommendations.
+- Deploy the application as a **web app** using **Flask** or **Django**.
+- Add real-time weather API integration for more precise recommendations.
 
 ---
 
 ## 📧 Contact
-For any queries, reach out to **Sonali Upadhyay**.
+For any queries or suggestions, reach out to **Sonali Upadhyay**.
