@@ -1,4 +1,4 @@
-# 🫀 Heart Disease Prediction System
+#  Heart Disease Prediction System
 
 A **Heart Disease Prediction System** built using **Python** and **Logistic Regression** to predict whether a person has a heart condition based on medical data. The system uses a trained machine learning model to classify patients as healthy or in need of medical attention based on input features.
 
